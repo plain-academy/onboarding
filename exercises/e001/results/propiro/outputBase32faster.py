@@ -14,7 +14,7 @@ arg = parser.parse_args()
 
 arg.u = not arg.l
 
-def generateString(keySize =arg.size, charCase = arg.u, ):
+def generateString(keySize, charCase):
     keyGenerated = ""          
     base32chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
     
@@ -25,4 +25,4 @@ def generateString(keySize =arg.size, charCase = arg.u, ):
     #print(keyGenerated, len(keyGenerated))
     print (keyGenerated)
 
-generateString()
+generateString(arg.size, arg.u)
