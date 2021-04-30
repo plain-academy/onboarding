@@ -24,4 +24,5 @@ def generateString(keySize =arg.size, charCase = arg.u, ):
         keyGenerated = keyGenerated.lower()
     #print(keyGenerated, len(keyGenerated))
     print (keyGenerated)
+
 generateString()
