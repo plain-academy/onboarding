@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import string
 import random
 import argparse
@@ -14,11 +16,11 @@ arg.u = not arg.l
 
 def generateString(keySize =arg.size, charCase = arg.u, ):
     keyGenerated = ""          
-
+    base32chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZ234567'
     
     for _ in range(keySize):
 
-        keyGenerated += (random.choice(string.ascii_uppercase + string.digits))
+        keyGenerated += (random.choice(base32chars))
     if not charCase:
         keyGenerated = keyGenerated.lower()
     #print(keyGenerated, len(keyGenerated))
