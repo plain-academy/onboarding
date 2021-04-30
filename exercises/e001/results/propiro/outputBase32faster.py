@@ -16,7 +16,7 @@ arg.u = not arg.l
 
 def generateString(keySize =arg.size, charCase = arg.u, ):
     keyGenerated = ""          
-    base32chars = 'ABCDEFGHIJKLMNPQRSTUVWXYZ234567'
+    base32chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
     
     for _ in range(keySize):
 
