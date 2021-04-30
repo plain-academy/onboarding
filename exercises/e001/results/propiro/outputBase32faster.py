@@ -3,7 +3,7 @@ import random
 import argparse
 
 parser = argparse.ArgumentParser(description='base32 key generator script')
-parser.add_argument('-s','--size', const=32, default=32, type=int, help='size of key, default=32', nargs='?')
+parser.add_argument('size', const=32, default=32, type=int, help='size of key, default=32', nargs='?')
 caseGroup = parser.add_mutually_exclusive_group()
 caseGroup.add_argument('-u', action="store_true", help='use uppercase letters, default option', default=True)
 caseGroup.add_argument('-l', action="store_true", help='use lowercase letters', default=False)
