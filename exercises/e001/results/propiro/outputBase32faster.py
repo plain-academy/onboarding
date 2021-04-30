@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+#!/usr/bin/env python3
+
 import string
 import random
 import argparse
@@ -29,6 +31,5 @@ def generateString(keySize =arg.size, charCase = arg.u, ):
      
 
 generateString()
-
 
 
