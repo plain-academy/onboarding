@@ -21,7 +21,6 @@ def generateString(keySize =arg.size, charCase = arg.u, ):
     base32chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
     
     for _ in range(keySize):
-
         keyGenerated += (random.choice(base32chars))
     if not charCase:
         keyGenerated = keyGenerated.lower()
@@ -31,5 +30,4 @@ def generateString(keySize =arg.size, charCase = arg.u, ):
      
 
 generateString()
-
 
