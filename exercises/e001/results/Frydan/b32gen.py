@@ -4,8 +4,8 @@ import argparse
 import random
 
 parser = argparse.ArgumentParser(description='Base32 (RFC 4648) random character string generator')
-meg = parser.add_mutually_exclusive_group()
 parser.add_argument('characters', type=int, default=32, nargs='?', help='Number of characters to generate (default: %(default)s)')
+meg = parser.add_mutually_exclusive_group()
 meg.add_argument('-l', '--lowercase', action='store_false', help='Output all lowercase (default: %(default)s)')
 meg.add_argument('-u', '--uppercase', action='store_true', help='Output all uppercase')
 
