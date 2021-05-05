@@ -1,33 +1,30 @@
 import random
-import string
 import base64
 import argparse
 
 parser = argparse.ArgumentParser(description="Random string of base32 characters")
-parser.add_argument('-a', '--amount', type=int, help='How many characters to print')
+parser.add_argument('characters', default=32, type=int, nargs='?', help='How many characters to print, default=32')
+caseGroup = parser.add_mutually_exclusive_group()
 parser.add_argument('-u', '--upper', action='store_true', help='Printing all upper characters')
 parser.add_argument('-l', '--lower', action='store_true', help='Printing all lower characters')
+
 args = parser.parse_args()
 
 
 def random_string(n):
-    letters = string.ascii_letters + string.digits
-    zz = (''.join(random.choice(letters) for i in range(n)))
-    encoded = zz.encode("utf-8")
-    b32coded = base64.b32encode(encoded)
+    r = random.randint(0, 255)
+    a = [random.randint(0, 255) for _ in range(n)]
+    b = bytes(a)
+    z = base64.b32encode(b)
     if args.upper:
-        return b32coded.upper()
+        return z.upper()
     elif args.lower:
-        return b32coded.lower()
+        return z.lower()
     else:
-        return b32coded.upper()
+        return z
 
 
 if __name__ == '__main__':
-    if args.amount is None:
-        r_string = '%.34s' % random_string(32)
-        print(r_string[2:])
-    else:
-        # ra_string = '%.s' % random_string(args.amount)
-        # print(ra_string[2:])
-        print(random_string(args.amount)) # doesn't work, I don't know how to truncate this string by args.amount
+    n = args.characters
+    s = random_string(n)[:n]
+    print(s.decode('ascii'))
