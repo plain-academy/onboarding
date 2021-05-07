@@ -5,8 +5,8 @@ import argparse
 parser = argparse.ArgumentParser(description="Random string of base32 characters")
 parser.add_argument('characters', default=32, type=int, nargs='?', help='How many characters to print, default=32')
 caseGroup = parser.add_mutually_exclusive_group()
-parser.add_argument('-l', '--lower', action='store_true', dest='size', help='Printing all lower characters')
-parser.add_argument('-u', '--upper', action='store_false', dest='size', help='Printing all upper characters')
+caseGroup.add_argument('-l', '--lower', action='store_true', dest='size', help='Printing all lower characters')
+caseGroup.add_argument('-u', '--upper', action='store_false', dest='size', help='Printing all upper characters')
 
 args = parser.parse_args()
 
