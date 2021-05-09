@@ -11,12 +11,12 @@ args = parser.parse_args()
 base32 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ234567'
 
 def genString(size, toLower=False):
-	if toLower!=True:
-		output = ''.join(random.choice(base32) for _ in range(size))
+	output = ''.join(random.choice(base32) for _ in range(size))
+	if toLower == True:
+		return output.lower()
 	else:
-		output = ''.join(random.choice(base32) for _ in range(size)).lower()
-	print(output)
-
-genString(args.size, args.case)
+		return output
+	
+print(genString(args.size, args.case))
 
 
