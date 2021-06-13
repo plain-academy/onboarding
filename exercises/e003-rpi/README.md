@@ -9,3 +9,6 @@ Setup RPi with Raspberry Pi OS Lite
   socat, sudo, tcpdump, tmux, wget, nload
 - user `pi` has password changed, to a password generated with
   your `pwgen` command
+
+Result should be a pull request with your Ansible code, so
+anyone else can reproduce your setup.
