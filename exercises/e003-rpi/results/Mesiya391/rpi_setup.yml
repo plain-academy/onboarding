@@ -1,0 +1,42 @@
+---
+  - name: rpi setup
+    hosts: RPIs
+    become: true
+    become_method: sudo
+    vars:
+      software_list:
+        - bc
+        - curl
+        - dnsutils
+        - man 
+        - mtr-tiny
+        - netcat
+        - rdate
+        - rsync
+        - screen
+        - socat
+        - sudo
+        - tcpdump
+        - tmux
+        - wget
+        - nload
+        - pwgen
+    tasks:
+      - name: install required tools
+        apt: 
+          name: "{{software_list}}" 
+       
+
+  - name: change pi pass
+    hosts: RPIs
+    become: true
+    become_method: sudo
+    tasks:
+      - name: generate password
+        command: pwgen -s -1
+        register: new_pass 
+
+      - name: change pi pass
+        user:
+          name: pi
+          password: "{{ new_pass.stdout | password_hash('sha512') }}"
