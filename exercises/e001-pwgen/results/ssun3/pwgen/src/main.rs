@@ -43,7 +43,7 @@ impl PwGen {
                 }
                 Ok(())
             }
-            _ => Err(Box::new(CliFlagValidationErrors::InvalidNum)),
+            _ => Err(Box::new(CliFlagValidationError::InvalidNum)),
         }
     }
 }
@@ -57,7 +57,7 @@ fn gen_base32_pw(num: u32) -> Result<String, Box<dyn Error>> {
 }
 
 #[derive(Debug, thiserror::Error)]
-pub enum CliFlagValidationErrors {
+pub enum CliFlagValidationError {
     #[error("number of chars must be a multiple of 8")]
     InvalidNum,
 }
