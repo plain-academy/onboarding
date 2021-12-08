@@ -23,11 +23,11 @@ fn print_error<'a>(error: Box<dyn Error + 'a>) {
 #[structopt(rename_all = "kebab-case")]
 #[derive(Debug)]
 pub struct PwGen {
-    /// display the characters in lower case
+    /// Display the characters in lower case
     #[structopt(long = "lower", short = "l")]
     lower: bool,
     /// The number of characters to print
-    /// where number is a multiple of 8 (e.g 8, 16, 32, 40)
+    /// must be a multiple of 8 (e.g 8, 16, 32)
     #[structopt(long = "num", short = "n", default_value = "32")]
     num: u32,
 }
